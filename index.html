@@ -1,1 +1,86 @@
-<h1> DOM PLAY</h1>
+<html>
+<head>
+<style>
+
+* {padding:0; margin:0;}
+		html {background-color:rgb(0, 0, 0);}
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			max-width:960px; /* keeps from getting too large on wide screen */
+			width:90%; /* shrink to fit screen */
+			margin:auto; /* center in html element */
+			background-color:rgb(230, 157, 226);
+			padding:20px;
+			min-height:100%; /* keeps from getting too large on wide screen */
+
+        }
+</style>
+</head>
+<body>
+
+<h1>A JavaScript example project called DOM play where the purpose is to have 
+actors that can touch the name of the character they are playing so they can highlight their lines to make it easier to rehearse.</h1>
+
+
+<div id="play">
+    <p><span data-actor="shaggy">Shaggy: Like Zoinks Scoob we got to get out of here!</span></p>
+    <p><span data-actor="scooby">Scooby: Yeah we do!</span></p>
+    <p><span data-actor="shaggy">Shaggy: Wait, you can talk?</span></p>
+    <p><span data-actor="scooby">Scooby: Raggy no rag!</span></p>
+    <p><span data-actor="shaggy">Shaggy:Good because I thought I was losing my mind!</span></p>
+    <p><span data-actor="velma">Velma: Has anyone seen my glasses?</span></p>
+</div>
+<script>
+
+    // We are using the CSS descendent selector to access the spans
+    const spans = document.querySelectorAll('div#play span');
+
+    console.log(spans);
+
+
+    for(const mySpan of spans){
+        mySpan.addEventListener("click",function(ev){
+            //alert(mySpan.dataset.actor);
+
+            highlightActor(mySpan.dataset.actor);
+        
+        });
+        
+    }
+
+
+
+    function highlightActor(myActor){
+        
+        for(const mySpan of spans){
+
+            if(myActor == mySpan.dataset.actor){
+                mySpan.style.backgroundColor = 'yellow';
+            }else{
+                mySpan.style.backgroundColor = 'white';             
+            }
+
+
+        }
+
+
+
+
+
+
+
+        if(el.style.backgroundColor == 'white'){
+            el.style.backgroundColor = 'yellow';
+
+        }else{
+            el.style.backgroundColor = 'white';
+
+        }
+    }
+
+  
+    </script>
+
+</body>
+
+</html>
